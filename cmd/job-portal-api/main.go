@@ -53,14 +53,14 @@ func startApp() error {
 		return err
 	}
 
-	se, err := services.NewService(repo, repo)
+	se, err := services.NewService(repo)
 
 	if err != nil {
 		return err
 	}
 
 	api := http.Server{ //server config and settimngs
-		Addr:    ":8090",
+		Addr:    ":8091",
 		Handler: handlers.Api(a, se),
 	}
 	api.ListenAndServe()
